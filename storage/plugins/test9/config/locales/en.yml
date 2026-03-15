@@ -1,0 +1,8 @@
+en:
+  plugins:
+    test9:
+      world_times: "World Times"
+      date: "Date"
+      time: "Time"
+      day_of_week: "Day"
+      utc_offset: "UTC Offset"

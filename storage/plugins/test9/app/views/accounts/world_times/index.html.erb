@@ -1,0 +1,72 @@
+<div class="bg-light-palette-p5 border-2 border-neutral-150 border-light-palette-p3 rounded m-8">
+  <header class="border-b-2 border-neutral-100 flex items-center justify-between gap-2 p-4 sticky top-0 bg-light-palette-p5 z-20">
+    <div class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </svg>
+      <h1 class="typography-title-b-lh150 text-dark-gray-palette-p1">
+        World Times
+      </h1>
+    </div>
+  </header>
+  <div class="p-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <% @times.each do |time_info| %>
+        <div class="bg-white border border-light-palette-p3 rounded-lg p-6 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">
+                <% case time_info[:country] %>
+                <% when 'BR' %>
+                  🇧🇷
+                <% when 'AU' %>
+                  🇦🇺
+                <% when 'US' %>
+                  🇺🇸
+                <% end %>
+              </span>
+              <h2 class="typography-title-s-lh150 text-dark-gray-palette-p1">
+                <%= time_info[:name] %>
+              </h2>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center py-2 border-b border-light-palette-p3">
+              <span class="typography-body-s-lh150 text-dark-gray-palette-p4">
+                Date
+              </span>
+              <span class="typography-body-r-lh150 text-dark-gray-palette-p2">
+                <%= time_info[:date] %>
+              </span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-light-palette-p3">
+              <span class="typography-body-s-lh150 text-dark-gray-palette-p4">
+                Time
+              </span>
+              <span class="typography-body-r-lh150 text-dark-gray-palette-p1 font-mono text-lg">
+                <%= time_info[:time] %>
+              </span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-light-palette-p3">
+              <span class="typography-body-s-lh150 text-dark-gray-palette-p4">
+                Day
+              </span>
+              <span class="typography-body-r-lh150 text-dark-gray-palette-p2">
+                <%= time_info[:day_of_week] %>
+              </span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="typography-body-s-lh150 text-dark-gray-palette-p4">
+                UTC Offset
+              </span>
+              <span class="typography-body-r-lh150 text-dark-gray-palette-p3">
+                <%= time_info[:utc_offset] %>
+              </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
